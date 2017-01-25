@@ -1,0 +1,17 @@
+== The Antiblog
+
+This is the source code for my own very personal
+{Antiblog}[https://antiblog.geekyfox.net].
+
+General concept of what "antiblog" is all about is explained in
+{this essay}[http://antiblog.geekyfox.net/meta/about],
+and previous implementation of this idea (in Haskell)
+can be found {here}[https://github.com/geekyfox/antiblog.hs].
+
+== Installation & Usage
+
+This application is not (really) intended for general usage (by anyone
+except myself).
+
+If you really want to use it and can't figure out how, feel free to
+ask {me}[mailto:ivan.appel@gmail.com] for help directly.

@@ -1,0 +1,18 @@
+<rss version="2.0">
+<channel>
+<title>{{site_title}}</title>
+<link>{{root_url}}</link>
+<description>/dev/brain >> /dev/null</description>
+{% for entry in entries %}
+<item>
+<title>{{entry.title}}</title>
+<link>{{root_url}}{{entry.permalink}}</link>
+<description>
+{{entry.summary | escape}}
+</description>
+<guid>{{root_url}}{{entry.permalink}}</guid>
+<pubDate>{{entry.pub_date}}</pubDate>
+</item>
+{% endfor %}
+</channel>
+</rss>

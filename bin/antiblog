@@ -1,0 +1,15 @@
+#!/bin/bash
+
+BASEDIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && cd .. && pwd )"
+CONFDIR=$BASEDIR/conf
+
+if [ -z "$1" ]; then
+    echo "Usage: $0 <profile>"
+    exit 1
+fi
+
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
+
+export PROFILE=$1
+exec unicorn -c $CONFDIR/unicorn.rb $CONFDIR/config.ru
+
