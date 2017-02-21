@@ -18,6 +18,7 @@ module Antiblog
         engine.bootstrap
         engine.upgrade
       end
+      @db.disconnect unless Profile.mock?
     end
 
     def self.[](x)
