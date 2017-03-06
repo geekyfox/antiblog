@@ -78,6 +78,14 @@ module Antiblog
         raise if x.nil?
         self['title'] = x == '' ? "##{id}" : x
       end
+
+      def teaser
+        self['teaser']
+      end
+
+      def teaser=(x)
+        self['teaser'] = x
+      end
     end
 
     ##
@@ -157,6 +165,7 @@ module Antiblog
         else
           entry.content = body
         end
+        entry.teaser = teaser
       end
 
       def add_tag(tag, count)
@@ -180,10 +189,24 @@ module Antiblog
         Profile.site_title
       end
 
+      def page_url
+        Profile.root_url
+      end
+
+      def page_description
+        if Profile.author_name
+          "#{Profile.site_title} by #{Profile.author_name}"
+        else
+          Profile.site_title
+        end
+      end
+
       def to_h
         super.merge(
           'not_found' => empty?,
           'page_title' => page_title,
+          'page_url' => page_url,
+          'page_description' => page_description,
           'tag_cloud' => tag_cloud
         )
       end
@@ -212,8 +235,18 @@ module Antiblog
       end
 
       def page_title
-        return Profile.site_title if @entries.empty?
+        return super if @entries.empty?
         "#{Profile.site_title} : #{@entries[0]['title']}"
+      end
+
+      def page_url
+        return super if @entries.empty?
+        Profile.root_url + @entries[0].permalink
+      end
+
+      def page_description
+        return super if @entries.empty?
+        @entries[0].teaser
       end
 
       def redirect_url

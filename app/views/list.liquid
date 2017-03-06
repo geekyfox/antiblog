@@ -9,16 +9,10 @@
     <link href="https://{{ root_url }}/rss.xml" rel="alternate" type="application/rss+xml" title="RSS">
     
     <title>{{ page_title }}</title>
-    <meta property="og:type" content="website">
-    <meta property="og:title" content="{{ page_title }}">
-    <meta property="og:url" content="{{ root_url }}">
-    <meta property="og:description"
-    {% if author_name %}
-        content="{{ site_title }} by {{ author_name }}"
-    {% else %}
-        content="{{ site_title }}"
-    {% endif %}
-    >
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="{{ page_title }}" />
+    <meta property="og:url" content="{{ page_url }}" />
+    <meta property="og:description" content="{{ page_description | strip_html | strip | escape }}" />
 </head>
 
 <body>
