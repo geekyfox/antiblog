@@ -28,25 +28,27 @@ module Antiblog
         end
       end
 
+      def webpage(locals)
+        template = Profile.theme.to_sym
+        liquid(template, locals: locals.to_h)
+      end
+
       get '/' do
-        locals = Database.page_locals
-        liquid(:list, locals: locals.to_h)
+        webpage(Database.page_locals)
       end
 
       get '/page/:ref' do
-        locals = Database.page_locals(params['ref'])
-        liquid(:list, locals: locals.to_h)
+        webpage(Database.page_locals(params['ref']))
       end
 
       get '/page/:ref/:secref' do
-        locals = Database.page_locals(params['ref'], params['secref'])
-        liquid(:list, locals: locals.to_h)
+        webpage(Database.page_locals(params['ref'], params['secref']))
       end
 
       get '/entry/:ref' do
         locals = Database.entry_locals(params['ref'])
         if locals.redirect_url.nil?
-          liquid(:list, locals: locals.to_h)
+          webpage(locals)
         else
           redirect(locals.redirect_url)
         end
@@ -55,7 +57,7 @@ module Antiblog
       get '/meta/:ref' do
         locals = Database.meta_locals(params['ref'])
         if locals.redirect_url.nil?
-          liquid(:list, locals: locals.to_h)
+          webpage(locals)
         else
           redirect(locals.redirect_url)
         end

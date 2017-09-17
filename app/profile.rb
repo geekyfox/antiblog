@@ -39,7 +39,8 @@ module Antiblog
         'author_name' => author_name,
         'author_href' => author_href,
         'has_powered_by' => powered_by_badge?,
-        'root_url' => root_url
+        'root_url' => root_url,
+        'donate_link' => donate_link
       }
     end
 
@@ -81,6 +82,14 @@ module Antiblog
 
     def self.site_title
       @data.fetch('site_title', 'The Antiblog')
+    end
+    
+    def self.theme
+      @data.fetch('theme', 'classic')
+    end
+    
+    def self.donate_link
+      @data['donate_link']
     end
   end
 end

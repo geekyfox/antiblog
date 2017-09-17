@@ -1,11 +1,11 @@
 <html>
 
 <head>
-    <link href="https://fonts.googleapis.com/css?family=Crimson Text:400,400italic,700" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=EB+Garamond:400,400italic,700" rel="stylesheet" type="text/css">        
     <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet" type="text/css">
-    <link href="https://fonts.googleapis.com/css?family=Molengo" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Cutive+Mono" rel="stylesheet" type="text/css">
-    <link href="/static/antiblog.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Tangerine:700" rel="stylesheet" type="text/css">    
+    <link href="/static/minimal.css" rel="stylesheet" type="text/css">
     <link href="https://{{ root_url }}/rss.xml" rel="alternate" type="application/rss+xml" title="RSS">
     
     <title>{{ page_title }}</title>
@@ -18,40 +18,38 @@
 <body>
 <div class="toplevel">
     <div class="page-header">
-        <a href="{{ root_url }}">{{ site_title }}</a>
+        <a class="blogname" href="{{ root_url }}">{{ site_title }}</a>
         {% if author_name %}
         <div class="page-subheader">
             {% if author_href %}
             by <a href="{{ author_href }}">{{ author_name }}</a>
             {% else %}
-            by {{ author_name }}
+            &copy; {{ author_name }}
             {% endif %}
         </div>
-        {% endif %}
-        {% if has_powered_by %}
-        <div class="page-subheader">
-            powered by <a href="http://github.com/geekyfox/antiblog">The Antiblog</a>
-        </div>
-        {% endif %}
-        <div class="page-subheader">
-            <hr>
-            <a href="{{ root_url }}/meta/about">About</a>
-            | <a href="{{ root_url }}/rss.xml">RSS</a>
-            | <a href="{{ root_url }}/entry/random">Random</a>
-        </div>
+        {% endif %}        
     </div>
-    
-    {% if tag_cloud %}
-    <div class="tag-cloud">
-        {% for tag in tag_cloud %}
-        <div class="color_{{tag.color}}">
-            <div class="colored">
-                <a href="{{root_url}}/page/{{tag.name}}">{{tag.name}}</a>
-            </div>
-        </div>
-        {% endfor %}
+
+<div class="navi-container">
+{% if donate_link %}
+    <div>
+        <a href="{{ donate_link.link }}">{{ donate_link.text }}</a>
     </div>
-    {% endif %}
+{% endif %}
+    <div>
+        <a href="/entry/random">Read random post</a>
+    </div>
+{% if prev %}
+    <div>
+        <a href="{{base_url}}{{prev}}">Go to previous page</a>
+    </div>
+{% endif %}
+{% if next %}
+    <div>
+        <a href="{{base_url}}{{next}}">Go to next page</a>
+    </div>
+{% endif %}
+</div>
     
 {% if not_found %}    
 <div class="entry">
@@ -67,10 +65,14 @@
         <a href="{{entry.permalink}}">{{entry.title}}</a>
     </div>
     {% if entry.tags %}
-    <div class="body">
-    {% else %}
-    <div class="body tagless">
+    <div class="tags colored">
+        {% for t in entry.tags %}
+        <a href="/page/{{t}}" class="colored">#{{t}}</a>
+        {% endfor %}
+    </div>
     {% endif %}
+    
+    <div class="body">
         <div class="stuff">
         {% for s in entry.series %}
             <div class="series-links">
@@ -98,30 +100,10 @@
             {% endif %}
         </div>
     </div>
-    {% if entry.tags %}
-    <div class="footer">
-        {% for t in entry.tags %}
-        <a href="/page/{{t}}" class="colored">{{t}}</a>
-        {% endfor %}
-    </div>
-    {% endif %}
 </div>
 {% endfor %}
 
-{% if navi %}
-<div class="navi-container">
-{% if prev %}
-    <div class="navi previous">
-        <a href="{{base_url}}{{prev}}">Previous page</a>
-    </div>
-{% endif %}
-{% if next %}
-    <div class="navi next">
-        <a href="{{base_url}}{{next}}">Next page</a>
-    </div>
-{% endif %}
 </div>
-{% endif %}
 
 </div>
 </body>

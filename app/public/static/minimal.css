@@ -1,0 +1,228 @@
+body {
+    background: #ffffff;
+}
+
+div.toplevel {
+    margin-top: 24px;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 900px;
+	position: relative;
+}
+
+div.page-header {
+    text-align: center;
+    margin-bottom: 24px;
+    margin-left: 25%;
+    margin-right: 25%;	
+    padding-top: 8px;
+    padding-bottom: 8px;
+	font-family: 'EB Garamond', serif;
+	font-size: 20px;
+}
+
+div.page-header a.blogname {
+    font-size: 48px;
+    font-family: 'Tangerine', sans-serif; 
+}
+
+div.page-header hr {
+    margin-top: 8px;
+    margin-bottom: 4px;
+}
+
+div.page-header a {
+    color: #000000;
+}
+
+div.body a {
+    color: #108010;
+}
+
+div.entry {
+    margin-top: 16px;
+    margin-left: 20px;
+    margin-right: 80px;
+    margin-bottom: 32px;
+	position: relative;
+}
+
+div.body {
+    font-family: 'EB Garamond', serif;
+    font-size: 20px;
+}
+
+div.color_1 .colored a:link {
+    color: #800000;
+}
+
+div.color_2 .colored a:link {
+    color: #800000;
+}
+
+div.color_3 .colored a:link {
+    color: #008000;
+}
+
+div.color_4 .colored a:link {
+    color: #008000;
+}
+
+div.color_5 .colored a:link {
+    color: #000080;
+}
+
+div.color_6 .colored a:link {
+    color: #000080;
+}
+
+div.entry div.header {
+    padding-top: 8px;
+    padding-right: 16px;
+    padding-left: 16px;
+    padding-bottom: 8px;
+    font-family: 'Tangerine', serif;
+    font-size: 40px;
+}
+
+div.entry div.body {
+    padding-left: 32px;
+    padding-top: 16px;
+    padding-right: 20%;
+    padding-bottom: 16px;	
+    line-height: 160%;
+}
+
+div.entry div.tags {
+	font-family: 'Tangerine', serif;
+	font-size: 28px;
+	text-align: right;
+	position: absolute;
+	left: -150px;
+	width: 130px;
+}
+
+div.entry div.headless {
+    padding-bottom: 16px;
+    font-family: 'Raleway', sans-serif;
+}
+
+a {
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+div.header a:visited {
+    color: #606060;
+}
+
+div.footer a {
+    padding-left: 4px;
+    padding-right: 4px;
+    padding-top: 1px;
+    padding-bottom: 1px;
+    color: #f0f0f0;
+}
+
+div.footer a:hover {
+    text-decoration: underline;
+}
+
+div.navi-container {
+    margin-top: 16px;
+    margin-left: 20px;
+    margin-right: 60px;
+    margin-bottom: 64px;
+    min-height: 70px;
+	position: fixed;
+	right: 0px;
+	bottom: 0px;
+    font-size: 32px;
+    font-family: 'Tangerine', sans-serif;
+    color: #000000;
+	z-index: 1000;
+}
+
+div.navi-container div {
+	margin-top: 24px;
+	padding: 8px;
+}
+
+div.navi-container a {
+	background-color: #e0ffe0;
+	color: #000000;
+	padding: 8px;
+}
+
+div.previous {
+    margin-left: 10%;
+    float: left;
+}
+
+div.next {
+    margin-right: 10%;
+    float: right;
+}
+
+pre {
+    margin-top: 12px;
+    margin-bottom: 12px;
+    margin-left: 36px;
+    padding: 12px;
+    font-family: 'Cutive Mono', monospace;
+	font-size: 14px;
+}
+
+span.code {
+    font-family: 'Cutive Mono', monospace;
+}
+
+code {
+    font-family: 'Cutive Mono', monospace;
+	font-size: 14px;
+}
+
+div.stuff {
+    margin-bottom: 16px;
+}
+
+div.stuff:last-child {
+    margin-bottom: 0px !important;
+}
+
+div.tag-cloud {
+    float: right;
+    padding: 8px;
+    width: 100px;
+    text-align: right;
+}
+
+div.tag-cloud div {
+    padding-top: 4px;
+    padding-bottom: 4px;
+}
+
+div.tag-cloud a {
+    padding-left: 4px;
+    padding-right: 12px;
+    padding-top: 1px;
+    padding-bottom: 1px;
+    color: #f0f0f0;
+    font-family: 'Tangerine', sans-serif;
+}
+
+div.tag-cloud a:hover {
+    text-decoration: underline;
+}
+
+div.series-links {
+    border-radius:10px;
+    border:1px dashed black;
+    text-align: center;
+    margin-bottom: 5px;
+    padding: 5px;
+}
+
